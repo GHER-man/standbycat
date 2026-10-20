@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 前景：渐变时钟环 + 10:10 指针 + 环上高光 + 弯月星夜 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- 中心柔光 -->
+    <path android:pathData="M54,54 m-38,0 a38,38 0 1,0 76,0 a38,38 0 1,0 -76,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="54"
+                android:centerY="54"
+                android:gradientRadius="38">
+                <item android:offset="0" android:color="#80FF5FAE" />
+                <item android:offset="1" android:color="#00FF5FAE" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 表盘内盘：压暗做出纵深 -->
+    <path android:pathData="M54,54 m-24,0 a24,24 0 1,0 48,0 a24,24 0 1,0 -48,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="48"
+                android:centerY="46"
+                android:gradientRadius="34">
+                <item android:offset="0" android:color="#FF3A1F4A" />
+                <item android:offset="0.55" android:color="#FF241338" />
+                <item android:offset="1" android:color="#FF140A22" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 时钟外环：两个圆做奇偶填充得到渐变粗环 -->
+    <path
+        android:fillType="evenOdd"
+        android:pathData="M54,54 m-29,0 a29,29 0 1,0 58,0 a29,29 0 1,0 -58,0 M54,54 m-24.5,0 a24.5,24.5 0 1,0 49,0 a24.5,24.5 0 1,0 -49,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="30"
+                android:startY="30"
+                android:endX="78"
+                android:endY="78">
+                <item android:offset="0" android:color="#FFFF7BB4" />
+                <item android:offset="0.55" android:color="#FFC458D8" />
+                <item android:offset="1" android:color="#FF8B3BFF" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 环上高光（左上弧）——玻璃质感 -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M30.8,40.6 A26.75,26.75 0 0,1 44.9,28.9"
+        android:strokeColor="#8CFFFFFF"
+        android:strokeWidth="2.4"
+        android:strokeLineCap="round" />
+
+    <!-- 环内侧高光细线 -->
+    <path
+        android:fillColor="#00000000"
+        android:pathData="M54,54 m-22.6,0 a22.6,22.6 0 1,0 45.2,0 a22.6,22.6 0 1,0 -45.2,0"
+        android:strokeColor="#33FFFFFF"
+        android:strokeWidth="0.6" />
+
+    <!-- 四个整点刻度 -->
+    <group android:fillColor="#D9FFFFFF">
+        <path android:pathData="M53.1,33.2 h1.8 v3.6 h-1.8 z" />
+        <path android:pathData="M53.1,71.2 h1.8 v3.6 h-1.8 z" />
+        <path android:pathData="M33.2,53.1 h3.6 v1.8 h-3.6 z" />
+        <path android:pathData="M71.2,53.1 h3.6 v1.8 h-3.6 z" />
+    </group>
+
+    <!-- 指针 10:10（圆头） -->
+    <path
+        android:pathData="M54,54 L41.5,46.5"
+        android:strokeColor="#FFFFFFFF"
+        android:strokeWidth="3.6"
+        android:strokeLineCap="round" />
+    <path
+        android:pathData="M54,54 L72,43.5"
+        android:strokeColor="#FFEDE8F8"
+        android:strokeWidth="2.9"
+        android:strokeLineCap="round" />
+
+    <!-- 轴心 -->
+    <path
+        android:fillColor="#FFFF5FAE"
+        android:pathData="M54,54 m-3.2,0 a3.2,3.2 0 1,0 6.4,0 a3.2,3.2 0 1,0 -6.4,0" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,54 m-1.3,0 a1.3,1.3 0 1,0 2.6,0 a1.3,1.3 0 1,0 -2.6,0" />
+
+    <!-- 弯月（一环内右上）：外圆 - 偏移圆，evenOdd 得到月牙 -->
+    <path
+        android:fillType="evenOdd"
+        android:pathData="M61,38 m-4.8,0 a4.8,4.8 0 1,0 9.6,0 a4.8,4.8 0 1,0 -9.6,0 M62.6,36.4 m-4.4,0 a4.4,4.4 0 1,0 8.8,0 a4.4,4.4 0 1,0 -8.8,0">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="linear"
+                android:startX="56"
+                android:startY="42"
+                android:endX="66"
+                android:endY="34">
+                <item android:offset="0" android:color="#FFFFF6E0" />
+                <item android:offset="1" android:color="#FFF0D49B" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- 两颗小星 -->
+    <path
+        android:fillColor="#CCFFFFFF"
+        android:pathData="M37,34 m-1.2,0 a1.2,1.2 0 1,0 2.4,0 a1.2,1.2 0 1,0 -2.4,0" />
+    <path
+        android:fillColor="#99FFFFFF"
+        android:pathData="M72,72 m-1,0 a1,1 0 1,0 2,0 a1,1 0 1,0 -2,0" />
+</vector>

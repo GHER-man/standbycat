@@ -1,0 +1,32 @@
+# ---- Android / Gradle ----
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+app/build/
+
+# ---- 签名与密钥（绝不入库）----
+*.keystore
+*.jks
+keystore.properties
+
+# ---- 构建产物 ----
+*.apk
+*.aab
+*.ap_
+*.dex
+
+# ---- 体积较大的媒体：放 GitHub Releases，不入库 ----
+*.mp4
+*.wav
+静夜时钟-使用说明书.html
+静夜时钟-使用说明书（纯文字版）.txt
+
+# ---- 视频合成的中间帧 ----
+demo/video/frames_*/
+demo/video/sfx.wav

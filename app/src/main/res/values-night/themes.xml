@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  系统深色模式下的同一套主题（刻意与日间完全一致）。
+  本应用本身就是纯黑 UI，自己处理“夜间模式”（双击/开关），不需要系统代劳；
+  提供 -night 变体等于告诉系统「我已适配深色」，可以避免部分 ROM 再对窗口做自动配色转换。
+-->
+<resources>
+    <style name="Theme.StandByCat" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

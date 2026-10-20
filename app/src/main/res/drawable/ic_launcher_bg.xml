@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 背景：深夜径向渐变（左上偏紫，右下沉黑） -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <path android:pathData="M-4,-4 h116 v116 h-116 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:type="radial"
+                android:centerX="32"
+                android:centerY="24"
+                android:gradientRadius="120">
+                <item android:offset="0" android:color="#FF33204A" />
+                <item android:offset="0.55" android:color="#FF181226" />
+                <item android:offset="1" android:color="#FF08070D" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

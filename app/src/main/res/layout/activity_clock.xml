@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/clockRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000">
+
+    <!-- 三个表盘页，竖直滑动切换 -->
+    <FrameLayout
+        android:id="@+id/pageHost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- ① 数字电子钟 -->
+        <FrameLayout
+            android:id="@+id/pageDigital"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xiaomi8.standbycat.BigClockView
+                android:id="@+id/bigClock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- ② 倒计时 -->
+        <FrameLayout
+            android:id="@+id/pageCountdown"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xiaomi8.standbycat.CountdownPageView
+                android:id="@+id/countdownPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- ③ 计时器（大字时:分:秒） -->
+        <FrameLayout
+            android:id="@+id/pageTimer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xiaomi8.standbycat.TimerPageView
+                android:id="@+id/timerPage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <!-- ④ 模拟指针 -->
+        <FrameLayout
+            android:id="@+id/pageAnalog"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.xiaomi8.standbycat.ClockView
+                android:id="@+id/analogClock"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </FrameLayout>
+
+    <!-- ===== 倒计时页的悬浮控件 ===== -->
+
+    <!-- 右上：固定时长快捷选项 -->
+    <LinearLayout
+        android:id="@+id/cdPresets"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginTop="14dp"
+        android:layout_marginRight="18dp"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/cdPreset5"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="5 分"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/cdPreset15"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="15 分"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/cdPreset30"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="30 分"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/cdPreset60"
+            android:layout_width="60dp"
+            android:layout_height="38dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="60 分"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- 底部中间：操作提示 -->
+    <TextView
+        android:id="@+id/cdHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="30dp"
+        android:text="在数字上上下滑动调整时长"
+        android:textColor="#8A8A8A"
+        android:textSize="13sp"
+        android:visibility="gone" />
+
+    <!-- 右下：开始 / 暂停 / 继续 -->
+    <TextView
+        android:id="@+id/cdToggle"
+        android:layout_width="92dp"
+        android:layout_height="44dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="22dp"
+        android:layout_marginRight="22dp"
+        android:background="@drawable/chip_bg"
+        android:gravity="center"
+        android:text="开始"
+        android:textColor="#E8E8E8"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+    <!-- 底部：日期 + 提示（靠左，右侧留给计时器） -->
+    <LinearLayout
+        android:id="@+id/bottomBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|start"
+        android:orientation="vertical"
+        android:gravity="start"
+        android:paddingLeft="34dp"
+        android:paddingBottom="34dp">
+
+        <TextView
+            android:id="@+id/dateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="星期三 2026年10月14日"
+            android:textColor="#A8A8A8"
+            android:textSize="16sp"
+            android:letterSpacing="0.06" />
+
+    </LinearLayout>
+
+    <!-- 页面指示点 -->
+    <LinearLayout
+        android:id="@+id/dotsRow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="12dp" />
+
+    <!-- 左上角：当前时间（只显示时:分，仅计时器页可见） -->
+    <LinearLayout
+        android:id="@+id/nowPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|start"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/panel_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="18dp"
+        android:paddingTop="8dp"
+        android:paddingRight="18dp"
+        android:paddingBottom="8dp">
+
+        <com.xiaomi8.standbycat.DigitsView
+            android:id="@+id/nowText"
+            android:layout_width="72dp"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <!-- 顶部右侧：小秒针表盘（整体右对齐，刘海补偿加在这个容器上）
+         夜间模式改到长按取色面板里切换，这里不再单独放按钮 -->
+    <LinearLayout
+        android:id="@+id/topRightBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|end"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- 秒数 / 毫秒共用同一个固定宽度槽位：
+             两个面板叠在同一个 FrameLayout 里，只显示其中一个，
+             这样既不会互相挤位置，切换页面时面板也不会跳动。 -->
+        <FrameLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content">
+
+            <!-- 秒数（数字钟页） -->
+            <LinearLayout
+                android:id="@+id/secondsPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp">
+
+                <com.xiaomi8.standbycat.DigitsView
+                    android:id="@+id/secondsText"
+                    android:layout_width="72dp"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/secondsUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="秒"
+                    android:textColor="#8A8A8A"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+            <!-- 毫秒（计时器页，自绘，30fps 刷新也不触发布局） -->
+            <LinearLayout
+                android:id="@+id/msPanel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/panel_bg"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingTop="8dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="8dp"
+                android:visibility="invisible">
+
+                <com.xiaomi8.standbycat.MsView
+                    android:id="@+id/msView"
+                    android:layout_width="72dp"
+                    android:layout_height="44dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="毫秒"
+                    android:textColor="#8A8A8A"
+                    android:textSize="12sp" />
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+
+    <!-- 右下角：小计时器（两个按键：开始/暂停/继续 + 复位） -->
+    <LinearLayout
+        android:id="@+id/timerPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/panel_bg"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="22dp"
+        android:paddingTop="10dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp">
+
+        <com.xiaomi8.standbycat.DigitsView
+            android:id="@+id/timerText"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/btnPrimary"
+            android:layout_width="66dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="18dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="开始"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btnLap"
+            android:layout_width="66dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="计次"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/btnReset"
+            android:layout_width="66dp"
+            android:layout_height="36dp"
+            android:layout_marginLeft="8dp"
+            android:background="@drawable/chip_bg"
+            android:gravity="center"
+            android:text="复位"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+    </LinearLayout>
+
+    <!-- 左下角：计次记录（固定 3 行，可上下滑动翻历史，仅计时器页可见） -->
+    <com.xiaomi8.standbycat.LapListView
+        android:id="@+id/lapList"
+        android:layout_width="232dp"
+        android:layout_height="104dp"
+        android:layout_gravity="bottom|start"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/panel_bg" />
+</FrameLayout>

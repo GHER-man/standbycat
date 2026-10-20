@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 本应用本身是纯黑 UI，用深色主题：
+         若继承 Light 主题，MIUI/系统的「强制深色模式」会把文字颜色擅自提亮
+         （自绘 Canvas 图形不受影响，于是出现「数字变浅橘、圆点仍暗红」的怪象）。 -->
+    <style name="Theme.StandByCat" parent="android:Theme.Material.NoActionBar">
+        <item name="android:statusBarColor">#00000000</item>
+        <item name="android:navigationBarColor">#00000000</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:colorAccent">@color/accent</item>
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+</resources>

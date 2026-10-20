@@ -1,0 +1,59 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    namespace 'com.xiaomi8.standbycat'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.xiaomi8.standbycat"
+        minSdk 27
+        targetSdk 34
+        versionCode 50
+        versionName "7.3"
+    }
+
+    // 签名信息从本地 keystore.properties 读取（不入库）；没有该文件时回退到 debug 签名，
+    // 这样别人 clone 下来也能直接构建，而密钥本身不会进仓库。
+    def ksProps = new Properties()
+    def ksFile = rootProject.file("keystore.properties")
+    if (ksFile.exists()) {
+        ksFile.withInputStream { ksProps.load(it) }
+    }
+
+    signingConfigs {
+        release {
+            if (ksFile.exists()) {
+                storeFile rootProject.file(ksProps['storeFile'] ?: 'standbycat.keystore')
+                storePassword ksProps['storePassword']
+                keyAlias ksProps['keyAlias']
+                keyPassword ksProps['keyPassword']
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig ksFile.exists() ? signingConfigs.release : signingConfigs.debug
+        }
+        debug {
+            signingConfig ksFile.exists() ? signingConfigs.release : signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+    kotlinOptions {
+        jvmTarget = '17'
+    }
+}
+
+dependencies {
+    // 农历 / 节气 / 节日 / 法定节假日调休（含 2026 年数据），MIT 协议
+    implementation("cn.6tail:lunar:1.7.7")
+}

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 横屏专用布局：左侧月历（含农历/节日）+ 右侧选中日期详情（农历/倒数日/系统日程） -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendarRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FF000000"
+    android:orientation="horizontal"
+    android:paddingLeft="26dp"
+    android:paddingRight="26dp"
+    android:paddingTop="18dp"
+    android:paddingBottom="18dp">
+
+    <!-- 左：月历 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1.3"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingRight="30dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/btnBack"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/btn_dark_circle"
+                android:gravity="center"
+                android:text="←"
+                android:textColor="#E8E8E8"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/monthTitle"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="2026年10月"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                android:textColor="#F5F5F5" />
+
+            <TextView
+                android:id="@+id/btnPrev"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/btn_dark_circle"
+                android:gravity="center"
+                android:text="‹"
+                android:textColor="#E8E8E8"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/btnNext"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/btn_dark_circle"
+                android:gravity="center"
+                android:text="›"
+                android:textColor="#E8E8E8"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/btnToday"
+            android:layout_width="wrap_content"
+            android:layout_height="34dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/btn_dark_pill"
+            android:gravity="center"
+            android:paddingLeft="26dp"
+            android:paddingRight="26dp"
+            android:text="@string/today"
+            android:textColor="#E8E8E8"
+            android:textSize="13sp" />
+
+        <LinearLayout
+            android:id="@+id/weekdayRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp" />
+
+        <GridView
+            android:id="@+id/calendarGrid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:numColumns="7"
+            android:verticalSpacing="2dp" />
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#FF2A2A2E" />
+
+    <!-- 右：选中日期详情 -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="34dp">
+
+        <TextView
+            android:id="@+id/bigDay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:text="14"
+            android:textSize="88sp"
+            android:textStyle="bold"
+            android:textColor="#F5F5F5"
+            android:fontFamily="sans-serif-black" />
+
+        <TextView
+            android:id="@+id/monthLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:text="2026年10月 · 星期三"
+            android:textSize="19sp"
+            android:textColor="#CFCFCF" />
+
+        <TextView
+            android:id="@+id/lunarLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="农历九月廿三 · 丙午马年"
+            android:textSize="16sp"
+            android:textColor="#9E9E9E" />
+
+        <TextView
+            android:id="@+id/festivalLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="国庆节 · 霜降"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FF5FAE"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/relLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="就是今天"
+            android:textSize="16sp"
+            android:textColor="#FF5FAE" />
+
+        <ScrollView
+            android:id="@+id/detailScroll"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginTop="10dp"
+            android:scrollbars="none"
+            android:overScrollMode="never">
+
+            <LinearLayout
+                android:id="@+id/detailList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>

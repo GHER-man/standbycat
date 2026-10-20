@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_bg">#FFF1E4</color>
+    <color name="cream_start">#FFF6EC</color>
+    <color name="cream_end">#FFE3CC</color>
+    <color name="card_bg">#CCFFFFFF</color>
+    <color name="card_stroke">#33FFFFFF</color>
+    <color name="text_main">#5B3A29</color>
+    <color name="text_sub">#A18877</color>
+    <color name="btn_normal">#FFF0DC</color>
+    <color name="btn_pressed">#FFE2C4</color>
+    <color name="accent">#FF9F43</color>
+</resources>

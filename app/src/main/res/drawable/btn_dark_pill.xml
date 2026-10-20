@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 胶囊按键（如「今天」）：只靠填色深浅区分，无描边 -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="#33FFFFFF">
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#FF26262A" />
+            <corners android:radius="22dp" />
+        </shape>
+    </item>
+</ripple>
