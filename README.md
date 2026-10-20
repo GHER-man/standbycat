@@ -5,6 +5,9 @@
 一个给床头/桌面用的横屏时钟 App：不用解锁、不用点屏幕，瞄一眼就知道几点。
 所有数字与控件都是自绘的，没有用任何 UI 框架 ——— 换来的是极低的功耗和完全可控的动画手感。
 
+> **本项目全部由 AI 辅助制作**：需求拆解、Kotlin 代码、液态玻璃渲染配方、真机验证与截图、
+> 说明书与宣传片，均在与 AI 的结对协作中完成。
+
 <p align="center">
   <img src="demo/shot-ui_clock.png" width="49%" />
   <img src="demo/shot-ui_countdown.png" width="49%" />
