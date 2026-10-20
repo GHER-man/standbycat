@@ -1,54 +1,40 @@
-# 推送到 GitHub（3 步）
+# 仓库维护手册
 
-本仓库已经初始化并完成首次提交（分支 `main`），只差一个远程地址。
+仓库已上线：**https://github.com/GHER-man/standbycat**
+安装包与宣传片在 Releases：**https://github.com/GHER-man/standbycat/releases/tag/v7.3**
 
-## 第 1 步：在 GitHub 网页建一个空仓库
+## 改了代码之后怎么更新
 
-打开 https://github.com/new ，按下面填：
-
-- **Repository name**：`standbycat`
-- **Description**：静夜时钟 · 一盏安静、会呼吸的安卓床头钟（液态玻璃 / 倒计时 / 秒表）
-- **Public** ✔
-- **不要**勾选 "Add a README file"、"Add .gitignore"、"Choose a license"
-  （本仓库里已经有了，勾了会产生冲突）
-
-点 **Create repository**。
-
-## 第 2 步：把本地仓库接上去并推送
-
-打开终端（Windows Terminal / Git Bash 均可），逐行执行
-（把 `<你的用户名>` 换成你的 GitHub 用户名）：
+在 `E:\workbuddy\xiaommi8\StandByCat` 下：
 
 ```bash
-cd E:\workbuddy\xiaommi8\StandByCat
-
-git remote add origin https://github.com/<你的用户名>/standbycat.git
-
-git push -u origin main
+git add -A
+git commit -m "说明这次改了什么"
+git push
 ```
 
-第一次推送会要求登录：
+> 本机的 GitHub 登录已经完成（账号 `GHER-man`），推送不会再要求输入密码。
+> 命令行工具在 `E:\workbuddy\xiaommi8\.tools\bin\gh.exe`。
 
-- 如果弹出浏览器窗口 → 直接用 GitHub 账号授权即可；
-- 如果只在终端里让你输入用户名 / 密码 → **密码处要填 Personal Access Token**
-  （GitHub 早已不允许用账号密码推送）。在 https://github.com/settings/tokens
-  生成一个带 `repo` 权限的 token，粘贴到密码处。
+## 发新版本（Release）
 
-## 第 3 步（可选）：发一个 Release，把 APK 和宣传片挂上去
+1. 改 `app/build.gradle` 里的 `versionCode` / `versionName`（例如 51 / 7.4）；
+2. 构建并复制成 ASCII 文件名：
 
-仓库里刻意没有提交 APK 与视频（避免仓库变大），它们适合放在 Releases：
+   ```bash
+   gradle assembleRelease
+   cp app/build/outputs/apk/release/app-release.apk 静夜时钟-v7.4.apk
+   ```
 
-1. 打开 `https://github.com/<你的用户名>/standbycat/releases/new`
-2. Tag 填 `v7.3`，标题填 `静夜时钟 v7.3`
-3. 说明里贴上更新点，附件拖入：
-   - `静夜时钟-v7.3.apk`
-   - `静夜时钟-宣传片-轻快版.mp4`、`静夜时钟-宣传片.mp4`
-   - `静夜时钟-功能说明书-v7.3.html`
-4. Publish release
+3. 发布（把版本号替换掉）：
+
+   ```bash
+   gh release create v7.4 --title "静夜时钟 v7.4" --notes "这次改了什么" 静夜时钟-v7.4.apk
+   ```
 
 ## 仓库里有什么 / 没有什么
 
-已提交：源码、`README.md`、`LICENSE`（MIT）、`demo/` 真机截图、宣传片合成脚本、功能说明书。
+已提交：源码、`README.md`、`LICENSE`(MIT)、`demo/` 真机截图、宣传片合成脚本、功能说明书。
 
 **没有**提交（见 `.gitignore`）：
 
@@ -57,11 +43,15 @@ git push -u origin main
 
 别人 clone 下来、没有 `keystore.properties` 时会自动回退到 debug 签名，可以直接构建。
 
-## 以后想再改代码并更新
+## 换一台电脑继续开发
 
 ```bash
-cd E:\workbuddy\xiaommi8\StandByCat
-git add -A
-git commit -m "说明这次改了什么"
-git push
+git clone https://github.com/GHER-man/standbycat.git
+cd standbycat
+cp keystore.properties.example keystore.properties   # 填入自己的签名信息（可选）
 ```
+
+## 撤销这台电脑的 GitHub 授权
+
+GitHub → Settings → Applications → 找到 **GitHub CLI** → Revoke。
+撤销后本机 `gh` 与 `git push` 都会失效，需要重新 `gh auth login`。
