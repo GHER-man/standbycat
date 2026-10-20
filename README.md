@@ -123,9 +123,12 @@ app/src/main/java/com/xiaomi8/standbycat/
 
 ## 演示物料
 
-`demo/` 下是开发过程中的真机截图与对比图；`demo/video/` 是宣传片的合成脚本
-（`build_promo.py` 暗调 90 秒版、`build_promo_light.py` 亮调 62 秒版，画面用 Pillow 逐帧渲染，
-音效全部 numpy 合成，无外部素材）。成片与 APK 见 **Releases**。
+- `demo/shot-*.png` —— 当前版本（v7.3）的 8 张真机截图，README 用的就是它们
+- `demo/mk_doc_html.py` —— 功能说明书（Markdown/纯文本 → HTML）的转换脚本
+- `demo/video/` —— 宣传片的合成脚本：`build_promo.py`（暗调 90 秒）、`build_promo_light.py`（亮调 60 秒）、
+  `make_bgm.py`（原创配乐）。画面用 Pillow 逐帧渲染，音乐用 numpy 合成，**全部无第三方素材**
+
+成片与 APK 见 **Releases**。
 
 ## License
 

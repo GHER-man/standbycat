@@ -37,3 +37,6 @@ u.xml
 
 # 视频转码临时目录
 demo/video/out/
+
+# 本地归档：旧版本截图与过程稿，不进仓库
+demo/_archive/
