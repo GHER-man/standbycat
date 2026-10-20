@@ -34,3 +34,6 @@ demo/video/sfx.wav
 # 临时抓取文件
 ui.xml
 u.xml
+
+# 视频转码临时目录
+demo/video/out/
