@@ -17,6 +17,12 @@
   <img src="demo/shot-night_clock.png" width="49%" />
 </p>
 
+<p align="center">
+  ▶ <a href="https://github.com/GHER-man/standbycat/releases/download/v7.3/standbycat-promo.mp4"><b>看 35 秒宣传片</b></a>
+  &nbsp;·&nbsp;
+  ⬇ <a href="https://github.com/GHER-man/standbycat/releases/latest"><b>下载安装包</b></a>
+</p>
+
 ## 功能
 
 **四个页面，上下滑动切换**
