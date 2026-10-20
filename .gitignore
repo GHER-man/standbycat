@@ -30,3 +30,7 @@ keystore.properties
 # ---- 视频合成的中间帧 ----
 demo/video/frames_*/
 demo/video/sfx.wav
+
+# 临时抓取文件
+ui.xml
+u.xml
