@@ -130,6 +130,10 @@ app/src/main/java/com/xiaomi8/standbycat/
 
 成片与 APK 见 **Releases**。
 
+## 致谢
+
+- [cn.6tail/lunar](https://github.com/6tail/lunar-java)（MIT）—— 农历 / 节气 / 法定节假日换算。
+
 ## License
 
 MIT，见 [LICENSE](LICENSE)。
